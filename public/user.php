@@ -41,9 +41,23 @@ if ($action == 'register') {
     $user_name = $_POST['user_name'];
     $password = $_POST['password'];
 
-    // todo 验证用户名是否被使用
+    //  验证用户名是否被使用
+    function name($user_name)
+    {
+        if (empty($user_name)) return false; //是否已存在
+        return true;
+    }
 
-    // todo password 处理成密文
+    //  password 处理成密文
+    $pwd = $_POST['password'];
+    $hash = password_hash($pwd, PASSWORD_DEFAULT);
+    /**解密是
+    if (password_verify($pwd,$hash)) {
+    echo "密码正确";
+} else {
+    echo "密码错误";
+}
+     */
 
     $result = $db->exec("insert into users values (null, '$user_name', '$password', null, null)");
     if ($result == 1) {
@@ -52,7 +66,7 @@ if ($action == 'register') {
         return json([$db->errorInfo()], '注册失败', -1);
     }
 }
-    // 登陆操作
+    // todo 登陆操作
 
 //获取自己信息 get_self_info
 if ($action == 'get_self_info'){

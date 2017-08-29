@@ -70,7 +70,7 @@ if ($action == 'register') {
 }
      */
 
-    $result = $db->exec("insert into users values (null, '$user_name', '$password', null, null)");
+    $result = $db->exec("insert into users values (null, '$user_name', '$pwd', null, null)");
     if ($result == 1) {
         return json([], '注册成功');
     } else {

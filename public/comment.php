@@ -8,6 +8,7 @@
  * Time: 21:59
  */
 require_once __DIR__ . '/../lib/link.php';
+require_once __DIR__ . '/../lib/global_function.php';
 
 // 获取接口名称
 //$action = empty($_SERVER['action'])?'':trim($_SERVER['action']);
